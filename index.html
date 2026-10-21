@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kazi Rakib Uddin</title>
+<meta name="description" content="Aquaculture researcher | Fish nutrition | RAS and water quality | M.S. @ Kentucky State University">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky slim nav; two-column hero (profile card | summary); then label-column sections like a printed CV */
+:root {
+  --bg: #F2F5F4;
+  --surface: #FFFFFF;
+  --ink: #142A2C;
+  --muted: #4F6567;
+  --line: #D4DFDD;
+  --accent: #0B6B6B;
+  --accent-soft: #DDEDEA;
+  --f-display: "Spectral", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1A1B; --surface: #142526; --ink: #E2EDEB; --muted: #95ACAA;
+    --line: #273D3E; --accent: #62C3B8; --accent-soft: #173735; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1A1B; --surface: #142526; --ink: #E2EDEB; --muted: #95ACAA;
+  --line: #273D3E; --accent: #62C3B8; --accent-soft: #173735; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.65;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+em.sp, i { font-style: italic; }
+
+.wrap {
+  max-width: 1060px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Nav */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { font-family: var(--f-display); font-weight: 600; font-size: 1.15rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul::-webkit-scrollbar { display: none; }
+.nav a.l { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; white-space: nowrap; }
+.nav a.l:hover { color: var(--accent); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 300px 1fr; gap: 48px; padding-block: 56px 40px; align-items: start; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 32px 24px 26px; text-align: center; display: grid; justify-items: center; gap: 6px;
+}
+.photo {
+  width: 168px; height: 168px; border-radius: 50%; margin-bottom: 12px;
+  display: grid; place-items: center; overflow: hidden;
+  background: radial-gradient(circle at 30% 30%, var(--accent-soft), var(--surface) 75%);
+  border: 1px solid var(--line);
+  font-family: var(--f-display); font-size: 3rem; color: var(--accent); letter-spacing: .02em;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.card h1 { font-family: var(--f-display); font-weight: 600; font-size: 1.7rem; line-height: 1.2; margin: 0; text-wrap: balance; }
+.role { color: var(--muted); font-size: .95rem; margin: 0; }
+.inst { font-family: var(--f-mono); font-size: .76rem; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 14px; }
+.links a {
+  font-size: .82rem; font-weight: 500; text-decoration: none; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; background: var(--bg);
+}
+.links a:hover { border-color: var(--accent); color: var(--accent); }
+
+.summary h2 { font-family: var(--f-display); font-weight: 600; font-size: 1.9rem; margin: 0 0 12px; line-height: 1.2; }
+.summary p.lead { font-size: 1.08rem; max-width: 62ch; margin: 0 0 20px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  background: var(--accent); color: var(--surface); font-weight: 600; font-size: .92rem;
+  padding: 10px 18px; border-radius: 8px;
+}
+.btn:hover { filter: brightness(1.08); }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 30px; }
+.facts h3 { font-family: var(--f-mono); font-size: .74rem; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 0 0 12px; }
+.edu { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.edu li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
+.edu .dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); margin-top: 8px; }
+.edu b { display: block; font-weight: 600; font-size: .96rem; line-height: 1.4; }
+.edu span { color: var(--muted); font-size: .88rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { background: var(--accent-soft); color: var(--ink); font-size: .85rem; padding: 4px 11px; border-radius: 6px; }
+
+/* Sections */
+section.blk { display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding-block: 48px; border-top: 1px solid var(--line); }
+.blk > header h2 { font-family: var(--f-display); font-weight: 600; font-size: 1.5rem; margin: 0; line-height: 1.2; }
+.blk > header p { color: var(--muted); font-size: .88rem; margin: 6px 0 0; }
+.blk > div { min-width: 0; }
+.prose p { max-width: 66ch; margin: 0 0 14px; }
+
+.species { margin-top: 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow-x: auto; }
+.species table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 460px; }
+.species th, .species td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.species tr:last-child td { border-bottom: 0; }
+.species th { font-family: var(--f-mono); font-weight: 500; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.species td:first-child { white-space: nowrap; }
+.species .sci { font-style: italic; color: var(--muted); display: block; font-size: .84rem; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 32px; }
+.skills h3 { font-size: .98rem; font-weight: 600; margin: 0 0 8px; color: var(--accent); }
+.skills ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: .93rem; }
+.skills li { padding-left: 14px; position: relative; }
+.skills li::before { content: ""; position: absolute; left: 0; top: .72em; width: 6px; height: 1px; background: var(--muted); }
+
+.feature {
+  display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: start;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin-bottom: 30px;
+}
+.journal {
+  aspect-ratio: 3/4; max-width: 100%; border-radius: 8px; background: var(--accent-soft);
+  display: grid; align-content: space-between; padding: 14px; font-family: var(--f-mono); font-size: .72rem; color: var(--accent);
+}
+.journal b { font-family: var(--f-display); font-size: 1.5rem; color: var(--ink); font-weight: 600; line-height: 1.1; }
+.feature .kicker { font-family: var(--f-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); }
+.feature h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.22rem; line-height: 1.35; margin: 6px 0 10px; text-wrap: balance; }
+.feature p { margin: 0 0 12px; font-size: .95rem; max-width: 64ch; }
+.feature .meta { font-size: .85rem; color: var(--muted); }
+
+.cites { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.cites li { font-size: .94rem; line-height: 1.6; padding-left: 16px; border-left: 2px solid var(--line); }
+.cites .me { font-weight: 600; }
+.cites .venue { font-style: italic; }
+.cites .kind { font-family: var(--f-mono); font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 2px; }
+.subhead { font-family: var(--f-mono); font-size: .74rem; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 32px 0 14px; }
+
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.proj { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; }
+.proj .where { font-family: var(--f-mono); font-size: .72rem; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+.proj h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.12rem; line-height: 1.3; margin: 0; }
+.proj p { margin: 0; font-size: .92rem; color: var(--muted); }
+.proj .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.proj .chips span { font-size: .76rem; border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; color: var(--muted); }
+
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+.timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 20px; }
+.timeline .when { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.timeline h3 { font-size: 1.02rem; font-weight: 600; margin: 0; }
+.timeline .org { color: var(--accent); font-size: .9rem; margin: 2px 0 8px; }
+.timeline ul { margin: 0; padding-left: 18px; font-size: .93rem; display: grid; gap: 4px; }
+
+.honors { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: .94rem; }
+.honors li { display: grid; grid-template-columns: 120px 1fr; gap: 16px; }
+.honors .y { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+
+.contact-box { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; gap: 14px; max-width: 620px; }
+.contact-box p { margin: 0; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.mail code { font-family: var(--f-mono); font-size: .95rem; background: var(--accent-soft); padding: 6px 10px; border-radius: 6px; user-select: all; word-break: break-all; }
+.copy { font: inherit; font-size: .85rem; font-weight: 500; cursor: pointer; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 6px; padding: 6px 12px; }
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
+footer .wrap { padding-block: 26px 40px; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 36px 28px; }
+  .card { max-width: 420px; justify-self: center; width: 100%; }
+  section.blk { grid-template-columns: 1fr; gap: 20px; padding-block: 38px; }
+}
+@media (max-width: 560px) {
+  .facts { grid-template-columns: 1fr; }
+  .feature { grid-template-columns: 1fr; }
+  .journal { max-width: 140px; }
+  .timeline li, .honors li { grid-template-columns: 1fr; gap: 4px; }
+  .nav .brand { display: none; }
+  .summary h2 { font-size: 1.55rem; }
+}
+</style>
+<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Kazi Rakib Uddin</a>
+    <ul>
+      <li><a class="l" href="#about">About</a></li>
+      <li><a class="l" href="#publications">Publications</a></li>
+      <li><a class="l" href="#projects">Projects</a></li>
+      <li><a class="l" href="#experience">Experience</a></li>
+      <li><a class="l" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <aside class="card">
+      <!-- Replace the initials with your photo: <img src="me.jpg" alt="Kazi Rakib Uddin"> -->
+      <div class="photo" aria-hidden="true">KRU</div>
+      <h1>Kazi Rakib Uddin</h1>
+      <p class="role">Aquaculture Researcher · Fish Nutrition &amp; RAS</p>
+      <div class="inst">Kentucky State University</div>
+      <div class="links" id="links"></div>
+    </aside>
+
+    <div class="summary">
+      <h2>Professional Summary</h2>
+      <p class="lead">I am an M.S. student in Aquaculture and Aquatic Sciences at Kentucky State University, where I study how salt type and salinity affect growth and molecular responses in olive flounder raised in recirculating aquaculture systems. My earlier research in Bangladesh focused on alternative protein and lipid sources in fish feeds.</p>
+      <a class="btn" id="cvbtn" href="#" hidden>Download CV</a>
+
+      <div class="facts">
+        <div>
+          <h3>Education</h3>
+          <ul class="edu">
+            <li><span class="dot"></span><div><b>M.S. in Aquaculture and Aquatic Sciences</b><span>Kentucky State University · expected 2027</span></div></li>
+            <li><span class="dot"></span><div><b>M.S. in Aquaculture</b><span>Sylhet Agricultural University · 2024</span></div></li>
+            <li><span class="dot"></span><div><b>B.Sc. in Fisheries</b><span>Sylhet Agricultural University · 2022</span></div></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Interests</h3>
+          <div class="tags">
+            <span class="tag">Fish nutrition &amp; feed formulation</span>
+            <span class="tag">Alternative proteins &amp; lipids</span>
+            <span class="tag">Fish physiology &amp; health</span>
+            <span class="tag">Recirculating aquaculture systems</span>
+            <span class="tag">Water quality management</span>
+            <span class="tag">Marine finfish aquaculture</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="blk" id="about">
+    <header><h2>About</h2></header>
+    <div>
+      <div class="prose">
+        <p>I am a Graduate Research Assistant in the Water Quality Lab at Kentucky State University, working with Dr. Andrew J. Ray on a USDA Evans-Allen funded project. Most of my days involve building and maintaining recirculating systems, sampling fish, and keeping water quality in check across several culture systems. My thesis trial compares salt types and salinity levels for olive flounder (<i>Paralichthys olivaceus</i>), measuring growth, survival and gene expression by qPCR.</p>
+        <p>My interest in feeds started at Sylhet Agricultural University in Bangladesh. There I ran a feeding trial on climbing perch using fermented mustard oil cake and fermented soybean meal as replacements for conventional protein, and presented the work at Aquaculture America 2025 in New Orleans. I also worked on black soldier fly larvae oil as a lipid source for butter catfish, and contributed to a 2026 paper in <i>Animals</i> on terrestrial oils as fish oil replacements in Gangetic catfish.</p>
+        <p>I am now looking for PhD and research positions where nutrition, fish physiology and production systems meet. At KSU I also serve as Vice President of the U.S. Aquaculture Society Student Subunit.</p>
+      </div>
+
+      <div class="species">
+        <table>
+          <thead><tr><th>Species I have worked with</th><th>Research focus</th></tr></thead>
+          <tbody>
+            <tr><td>Olive flounder<span class="sci">Paralichthys olivaceus</span></td><td>Salt type and salinity in RAS; growth, survival, gene expression</td></tr>
+            <tr><td>Climbing perch<span class="sci">Anabas testudineus</span></td><td>Fermented oilseed by-products as alternative proteins</td></tr>
+            <tr><td>Butter catfish<span class="sci">Ompok pabda</span></td><td>Black soldier fly larvae oil as an alternative lipid</td></tr>
+            <tr><td>Gangetic catfish<span class="sci">Mystus cavasius</span></td><td>Terrestrial oils replacing dietary fish oil</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="skills">
+    <header><h2>Skills &amp; Methods</h2></header>
+    <div class="skills">
+      <div>
+        <h3>Culture systems</h3>
+        <ul><li>RAS construction and maintenance</li><li>Pond and tank systems</li><li>Feed inventory and daily operations</li><li>Experimental feed formulation</li></ul>
+      </div>
+      <div>
+        <h3>Water quality</h3>
+        <ul><li>YSI instruments</li><li>Ammonia, nitrite, nitrate</li><li>Alkalinity and turbidity</li><li>Ammonia threshold tracking</li></ul>
+      </div>
+      <div>
+        <h3>Fish assessment</h3>
+        <ul><li>Length, weight, condition factor</li><li>Growth and survival analysis</li><li>Blood, immunological and histological sampling</li><li>Proximate composition and minerals</li></ul>
+      </div>
+      <div>
+        <h3>Molecular</h3>
+        <ul><li>DNA/RNA extraction</li><li>cDNA synthesis</li><li>qPCR and dPCR</li><li>Gene expression analysis</li></ul>
+      </div>
+      <div>
+        <h3>Data analysis</h3>
+        <ul><li>R</li><li>SPSS</li><li>Excel</li><li>ANOVA and regression</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="publications">
+    <header><h2>Publications</h2><p>Peer-reviewed work and conference talks</p></header>
+    <div>
+      <article class="feature">
+        <div class="journal"><span>MDPI</span><b>Animals</b><span>2026 · 16(2)</span></div>
+        <div>
+          <span class="kicker">Featured publication</span>
+          <h3>Evaluation of Different Terrestrial Oils as an Alternative to Dietary Fish Oil on Feed Physical Properties, Growth, Feed Utilization, and Fatty Acid Profile of Gangetic Catfish (<i>Mystus cavasius</i>)</h3>
+          <p>A 70-day feeding trial comparing fish oil with soybean, black soldier fly larvae, palm and mixed oils. The mixed-oil diet gave the best growth, and feed efficiency did not differ among diets.</p>
+          <div class="meta"><a href="https://doi.org/10.3390/ani16020330" target="_blank" rel="noopener">doi.org/10.3390/ani16020330</a></div>
+        </div>
+      </article>
+
+      <ul class="cites">
+        <li><span class="kind">Journal article</span>Helen ST, Dey T, Bharoteshwari A, <span class="me">Uddin KR</span>, Kabir MA, Hasan MR, Hossain MS (2026). Evaluation of different terrestrial oils as an alternative to dietary fish oil on feed physical properties, growth, feed utilization, and fatty acid profile of Gangetic catfish (<i>Mystus cavasius</i>). <span class="venue">Animals</span>, 16(2), 330.</li>
+      </ul>
+
+      <div class="subhead">Presentations</div>
+      <ul class="cites">
+        <li><span class="kind">Oral · Aquaculture America 2025, New Orleans</span><span class="me">Uddin KR</span>, Dey T, Hossain MS. Fermented mustard oil cake and fermented soybean meal as alternative proteins in climbing perch.</li>
+        <li><span class="kind">Oral · 13th Indian Fisheries and Aquaculture Forum, 2024</span>Bharoteshwari A, Dey T, Hossain MS, <span class="me">Uddin KR</span>. Black soldier fly larvae oil as an alternative lipid source for butter catfish.</li>
+        <li><span class="kind">Poster · 2nd Intl. Conference on Sustainable Fisheries, 2022</span><span class="me">Uddin KR</span>, Kawser MA. Fish disease burden and antibiotic use in pond aquaculture in South Chattogram, Bangladesh.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="blk" id="projects">
+    <header><h2>Research Projects</h2><p>Current and past work</p></header>
+    <div class="projects">
+      <article class="proj">
+        <span class="where">KSU · 2025–present</span>
+        <h3>Salt type and salinity for olive flounder in RAS</h3>
+        <p>Controlled trial testing how salt source and salinity level affect performance and molecular responses in <i>Paralichthys olivaceus</i>. M.S. thesis project.</p>
+        <div class="chips"><span>RAS</span><span>qPCR</span><span>Water quality</span></div>
+      </article>
+      <article class="proj">
+        <span class="where">SAU · 2023–2024</span>
+        <h3>Fermented oilseed by-products for climbing perch</h3>
+        <p>Multi-treatment feeding trial with fermented mustard oil cake and fermented soybean meal, measuring growth, blood, immune and histological responses.</p>
+        <div class="chips"><span>Feed formulation</span><span>Histology</span><span>Proximate analysis</span></div>
+      </article>
+      <article class="proj">
+        <span class="where">SAU · 2022–2026</span>
+        <h3>Alternative lipids in catfish diets</h3>
+        <p>Black soldier fly larvae oil for butter catfish, and terrestrial oils replacing fish oil in Gangetic catfish, with growth, health and fatty acid outcomes.</p>
+        <div class="chips"><span>Insect oil</span><span>Fatty acids</span><span>Growth</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="blk" id="experience">
+    <header><h2>Experience</h2></header>
+    <div>
+      <ol class="timeline">
+        <li>
+          <div class="when">Jan 2025 – Present</div>
+          <div>
+            <h3>Graduate Research Assistant</h3>
+            <div class="org">Kentucky State University · USDA Evans-Allen funded project</div>
+            <ul>
+              <li>Run fish sampling (length, weight, condition factor) and organize data for analysis</li>
+              <li>Monitor water quality across culture systems with YSI instruments and adjust operations around ammonia thresholds</li>
+              <li>Design and run the olive flounder salinity trial, including qPCR gene expression work</li>
+              <li>Build and maintain RAS and manage feed inventory with research staff</li>
+              <li>Organized the 2026 KSU Shrimp Farming Symposium for producers, agency staff and the public</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Jul 2023 – Jun 2024</div>
+          <div>
+            <h3>Teaching Assistant, Fish Nutrition Lab</h3>
+            <div class="org">Sylhet Agricultural University, Bangladesh</div>
+            <ul><li>Trained undergraduates on lab instruments and methods; administered and graded exams</li></ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Jan 2023 – Jul 2024</div>
+          <div>
+            <h3>Research Assistant</h3>
+            <div class="org">Sylhet Agricultural University, Bangladesh</div>
+            <ul>
+              <li>Ran the climbing perch feeding trial on fermented oilseed by-products</li>
+              <li>Formulated experimental feeds; performed proximate composition and mineral analyses</li>
+              <li>Collected growth, blood, immunological and histological data</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Mar 2022 – Dec 2022</div>
+          <div>
+            <h3>Research Assistant</h3>
+            <div class="org">Sylhet Agricultural University, Bangladesh</div>
+            <ul><li>Evaluated black soldier fly larvae oil as a lipid source for butter catfish</li></ul>
+          </div>
+        </li>
+      </ol>
+
+      <div class="subhead">Service &amp; Awards</div>
+      <ul class="honors">
+        <li><span class="y">2025 – Present</span><span>Vice President, U.S. Aquaculture Society Student Subunit, Kentucky State University</span></li>
+        <li><span class="y">2023 – 2024</span><span>National Science and Technology (NST) Fellowship, Government of Bangladesh</span></li>
+        <li><span class="y">2025</span><span>Oyster spawning event, Thad Cochran Marine Aquaculture Center, University of Southern Mississippi</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="blk" id="contact">
+    <header><h2>Contact</h2></header>
+    <div class="contact-box">
+      <p>I am open to PhD positions, research assistantships and aquaculture roles. Email is the best way to reach me.</p>
+      <div class="mail">
+        <code id="email">kazirakib.uddin@kysu.edu</code>
+        <button class="copy" id="copybtn" type="button">Copy email</button>
+      </div>
+      <p style="color:var(--muted);font-size:.9rem">School of Aquaculture and Aquatic Sciences, Kentucky State University, Frankfort, KY</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Kazi Rakib Uddin</div></footer>
+
+<script>
+// Add your profile URLs here; empty ones stay hidden.
+const PROFILE = {
+  cv: "",            // e.g. "Kazi-Rakib-Uddin-CV.pdf"
+  links: [
+    ["Google Scholar", ""],
+    ["ORCID", ""],
+    ["ResearchGate", ""],
+    ["LinkedIn", ""],
+    ["Email", "mailto:kazirakib.uddin@kysu.edu"]
+  ]
+};
+const box = document.getElementById("links");
+PROFILE.links.filter(l => l[1]).forEach(([label, href]) => {
+  const a = document.createElement("a");
+  a.href = href; a.textContent = label;
+  if (href.startsWith("http")) { a.target = "_blank"; a.rel = "noopener"; }
+  box.appendChild(a);
+});
+if (PROFILE.cv) { const b = document.getElementById("cvbtn"); b.href = PROFILE.cv; b.hidden = false; }
+
+document.getElementById("copybtn").addEventListener("click", e => {
+  const btn = e.currentTarget, text = document.getElementById("email").textContent;
+  const done = () => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy email", 1800); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("email")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected"; };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (_) { fallback(); }
+});
+</script>
+</body>
+</html>
